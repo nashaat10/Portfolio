@@ -51,14 +51,14 @@ const userSchema = new mongoose.Schema({
 });
 
 // Populate user with projects and experiences
-userSchema.pre(/^find/, function (next) {
-  this.populate({
-    path: "projects",
-  }).populate({
-    path: "experiences",
-  }),
-    next();
-});
+// userSchema.pre(/^find/, function (next) {
+//   this.populate({
+//     path: "projects",
+//   }).populate({
+//     path: "experiences",
+//   }),
+//     next();
+// });
 
 const User = mongoose.model("User", userSchema);
 module.exports = User;
