@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: [true, "Please provide a password"],
+    // required: [true, "Please provide a password"],
   },
   title: {
     type: String,
@@ -28,7 +28,7 @@ const userSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    required: [true, "Please provide a description"],
+    // required: [true, "Please provide a description"],
   },
   image: {
     type: String,
