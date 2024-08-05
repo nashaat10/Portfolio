@@ -1,5 +1,6 @@
 const User = require("../models/userModel");
 const catchAsync = require("../utils/catchAsync");
+const AppError = require("../utils/appError");
 
 exports.createUser = catchAsync(async (req, res, next) => {
   const newUser = await User.create(req.body);
@@ -15,9 +16,9 @@ exports.createUser = catchAsync(async (req, res, next) => {
 });
 
 exports.getUser = catchAsync(async (req, res, next) => {
-  const user = await User.findById(req.params.id)
-    .populate("projects")
-    .populate("experiences");
+  const user = await User.findById(req.params.id);
+  // .populate("projects")
+  // .populate("experiences");
 
   if (!user) {
     return next(new AppError("No user found with that ID", 404));
@@ -53,7 +54,7 @@ exports.deleteUser = catchAsync(async (req, res, next) => {
     return next(new AppError("No user found with that ID", 404));
   }
 
-  res.status(204).json({
+  res.json({
     status: "success",
     data: null,
   });
