@@ -2,6 +2,7 @@ const express = require("express");
 const morgan = require("morgan");
 const app = express();
 const userRouter = require("./Portfolio/routes/userRoutes");
+const projectRouter = require("./Portfolio/routes/projectRoutes");
 const AppError = require("./Portfolio/utils/appError");
 const globalErrorHandler = require("./Portfolio/controllers/errorController");
 
@@ -12,6 +13,7 @@ app.use(express.json());
 // routes
 
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/projects", projectRouter);
 
 app.all("*", (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
