@@ -2,16 +2,21 @@ const express = require("express");
 const morgan = require("morgan");
 const app = express();
 const userRouter = require("./Portfolio/routes/userRoutes");
+const AppError = require("./Portfolio/utils/appError");
+const globalErrorHandler = require("./Portfolio/controllers/errorController");
 
-if (process.env.NODE_ENV === "development") {
-  app.use(morgan("dev"));
-  console.log(`running in ${process.env.NODE_ENV} mode`);
-}
+app.use(morgan("dev"));
 
 app.use(express.json());
 
 // routes
 
 app.use("/api/v1/users", userRouter);
+
+app.all("*", (req, res, next) => {
+  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
+});
+
+app.use(globalErrorHandler);
 
 module.exports = app;
