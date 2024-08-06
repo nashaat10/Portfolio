@@ -4,8 +4,6 @@ const experienceSchema = new mongoose.Schema({
   title: {
     type: String,
     required: [true, "Please provide a title"],
-    minlength: 10,
-    maxlength: 50,
   },
   company: {
     type: String,
@@ -13,15 +11,15 @@ const experienceSchema = new mongoose.Schema({
   },
   location: {
     type: String,
-    required: [true, "Please provide a location"],
+    // required: [true, "Please provide a location"],
   },
   from: {
     type: Date,
-    required: [true, "Please provide a start date"],
+    // required: [true, "Please provide a start date"],
   },
   to: {
     type: Date,
-    required: [true, "Please provide an end date"],
+    // required: [true, "Please provide an end date"],
   },
   current: {
     type: Boolean,
@@ -29,7 +27,7 @@ const experienceSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    required: [true, "Please provide a description"],
+    // required: [true, "Please provide a description"],
   },
 });
 
