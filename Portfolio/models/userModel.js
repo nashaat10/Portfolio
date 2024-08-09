@@ -40,8 +40,9 @@ const userSchema = new mongoose.Schema({
     type: String,
     //required: [true, "Please provide a description"],
   },
-  image: {
+  photo: {
     type: String,
+    required: [true, "Please provide an image"],
   },
   skills: {
     type: [String],
