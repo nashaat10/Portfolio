@@ -8,13 +8,9 @@ Is a backend that allows any user to create their portfolio. It's built using No
 3. RESTful API
 4. CRUD operations
 5. Advanced authentication and security
-6. Payments with Stripe
-7. Mapbox integration
-8. Email sending with Mailtrap and Sendinblue
-9. Advanced error handling
-10. File uploading
-11. Advanced MongoDB
-12. Geospatial data
-13. Advanced mongoose features
-14. Image processing with sharp
-15. And much more!
+6. Advanced error handling
+7. File uploading
+8. Advanced MongoDB
+9. Advanced mongoose features
+10. Image processing with sharp
+11. And much more!
