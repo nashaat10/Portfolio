@@ -34,11 +34,6 @@ const createSendToken = (user, statusCode, res) => {
 };
 
 exports.signUp = catchAsync(async (req, res, next) => {
-  const users = await User.find();
-
-  //   if (users.length > 0) {
-  //     return next(new AppError("This route is not available", 401));
-  //   }
   const newUser = await User.create(req.body);
   createSendToken(newUser, 201, res);
 });
@@ -95,34 +90,5 @@ exports.protect = catchAsync(async (req, res, next) => {
   }
 
   req.user = currentUser;
-  next();
-});
-
-exports.isLoggedIn = catchAsync(async (req, res, next) => {
-  // +[1] get the token and check if it's there
-  if (req.cookies.JWT) {
-    // +[2] Verification token
-    try {
-      const decoded = await promisify(jwt.verify)(
-        req.cookies.JWT,
-        process.env.JWT_SECRET
-      );
-
-      // +[3] Check if user still exist
-      const freshUser = await User.findById(decoded.id);
-      if (!freshUser) {
-        return next();
-      }
-      // +[4] Check if user changed password after the token was issued
-      if (freshUser.passwordChangedAfter(decoded.iat)) {
-        return next();
-      }
-
-      res.locals.user = freshUser;
-    } catch (error) {
-      return next();
-    }
-    return next();
-  }
   next();
 });
