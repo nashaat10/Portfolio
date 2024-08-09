@@ -14,3 +14,9 @@ Is a backend that allows any user to create their portfolio. It's built using No
 9. Advanced mongoose features
 10. Image processing with sharp
 11. And much more!
+# APIs # 
+Auth:
+~~~
+/api/v1/users/signup [POST]
+/api/v1/users/login [POST]
+~~~
