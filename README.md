@@ -20,3 +20,28 @@ Auth:
 /api/v1/users/signup [POST]
 /api/v1/users/login [POST]
 ~~~
+Users:
+~~~
+/api/v1/users [post]
+/api/v1/users[get]
+/api/v1/users/:id [Get]
+/api/v1/users/:id [Delete]
+/api/v1/users/:id [Update]
+~~~
+Projects:
+~~~
+/api/v1/projects [Get]
+/api/v1/projects[Post]
+/api/v1/projects/:id [Delete]
+/api/v1/projects/:id [Update]
+/api/v1/projects/:id[Get]
+~~~
+experiences:
+~~~
+/api/v1/experiences [Post]
+/api/v1/experiences [Get]
+/api/v1/experiences/:id [Get]
+/api/v1/experiences/:id [Delete]
+/api/v1/experiences/:id [Update]
+
+
