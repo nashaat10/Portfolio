@@ -3,7 +3,7 @@ Is a backend that allows any user to create their portfolio. It's built using No
 
 # Features #
 
-1. protected routes, authentication, authorization, security, payments, and more.
+1. protected routes, authentication, authorization, security,and more.
 2. MVC architecture
 3. RESTful API
 4. CRUD operations
