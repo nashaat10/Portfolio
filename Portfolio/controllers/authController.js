@@ -34,6 +34,9 @@ const createSendToken = (user, statusCode, res) => {
 };
 
 exports.signUp = catchAsync(async (req, res, next) => {
+  if ((await User.find()) > 1) {
+    return next(new AppError("Only one user is allowed", 400));
+  }
   const newUser = await User.create(req.body);
   createSendToken(newUser, 201, res);
 });
