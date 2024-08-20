@@ -31,6 +31,7 @@ const userSchema = new mongoose.Schema({
       },
       message: "Passwords are not the same",
     },
+    select: false,
   },
   title: {
     type: String,
@@ -42,7 +43,7 @@ const userSchema = new mongoose.Schema({
   },
   photo: {
     type: String,
-    required: [true, "Please provide an image"],
+    // required: [true, "Please provide an photo"],
   },
   skills: {
     type: [String],
@@ -55,13 +56,13 @@ const userSchema = new mongoose.Schema({
   },
   projects: [
     {
-      type: mongoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.ObjectId,
       ref: "Project",
     },
   ],
   experiences: [
     {
-      type: mongoose.Schema.Types.ObjectId,
+      type: mongoose.Schema.ObjectId,
       ref: "Experience",
     },
   ],

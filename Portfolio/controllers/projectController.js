@@ -1,9 +1,14 @@
 const Project = require("../models/projectModel");
 const catchAsync = require("../utils/catchAsync");
 const AppError = require("../utils/appError");
+const User = require("../models/userModel");
 
 exports.createProject = catchAsync(async (req, res, next) => {
   const newProject = await Project.create(req.body);
+  const user = await User.findById(req.user._id);
+  user.projects.push(newProject._id);
+  await user.save();
+
   if (!newProject) {
     return next(new AppError("Project not created", 400));
   }

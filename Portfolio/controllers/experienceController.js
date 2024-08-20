@@ -1,9 +1,14 @@
 const Experience = require("../models/experienceModel");
+const User = require("../models/userModel");
 const AppError = require("../utils/appError");
 const catchAsync = require("../utils/catchAsync");
 
 exports.createExperience = catchAsync(async (req, res, next) => {
   const experience = await Experience.create(req.body);
+
+  const user = await User.findById(req.user._id);
+  user.experiences.push(experience._id);
+  await user.save();
   if (!experience) {
     return next(new AppError("Experience not created", 400));
   }

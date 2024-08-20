@@ -136,6 +136,9 @@ exports.updateMe = catchAsync(async (req, res, next) => {
       )
     );
   }
+  console.log(req.body.skills);
+
+  let bodySkills = req.body.skills;
   const filterBody = filterObj(req.body, "name", "email");
   if (req.file) filterBody.photo = req.file.filename;
 
@@ -144,6 +147,12 @@ exports.updateMe = catchAsync(async (req, res, next) => {
     new: true,
     runValidators: true,
   });
+  if (bodySkills) {
+    for (let i = 0; i < bodySkills.length; i++) {
+      updateUser.skills.push(bodySkills[i]);
+    }
+    await updateUser.save();
+  }
   res.status(200).json({
     status: "success",
     data: {
@@ -153,9 +162,24 @@ exports.updateMe = catchAsync(async (req, res, next) => {
 });
 
 exports.deleteMe = catchAsync(async (req, res, next) => {
-  await User.findByIdAndUpdate(req.user.id, { active: false });
+  const user = await User.findByIdAndUpdate(req.user.id, { active: false });
+
   res.status(204).json({
     status: "success",
     data: null,
   });
 });
+
+// exports.updateSkills = catchAsync(async (req, res, next) => {
+//   const user = await User.findById(req.user._id);
+//   for (let i = 0; i < req.body.skills.length; i++) {
+//     user.skills.push(req.body.skills[i]);
+//   }
+//   await user.save();
+//   res.json({
+//     status: "success",
+//     data: {
+//       user,
+//     },
+//   });
+// });
