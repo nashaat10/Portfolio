@@ -4,26 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "build:client": "cd client && npm install",
+    "build:server": "cd server && npm install",
+    "build": "concurrently \"npm run build:client\" \"npm run build:server\"",
+    "start:client": "cd client && npm start",
+    "start:server": "cd server && npm start",
+    "start": "concurrently \"npm run start:server\" \"npm run start:client\""
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nashaat10/Portfolio.git"
+  },
+  "author": "Mohamed Nashaat",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nashaat10/Portfolio/issues"
+  },
+  "homepage": "https://github.com/nashaat10/Portfolio#readme",
   "dependencies": {
-    "bcrypt": "^5.1.1",
-    "cookie": "^0.6.0",
-    "crypto": "^1.0.1",
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "jsonwebtoken": "^9.0.2",
-    "mongodb": "^6.8.0",
-    "mongoose": "^8.5.2",
-    "morgan": "^1.10.0",
-    "multer": "^1.4.5-lts.1",
-    "nodemon": "^3.1.4",
-    "sharp": "^0.33.4",
-    "util": "^0.12.5",
-    "validator": "^13.12.0"
+    "concurrently": "^8.2.2"
   }
 }

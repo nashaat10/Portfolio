@@ -1,11 +1,11 @@
 const express = require("express");
 const morgan = require("morgan");
 const app = express();
-const userRouter = require("./Portfolio/routes/userRoutes");
-const projectRouter = require("./Portfolio/routes/projectRoutes");
-const experienceRouter = require("./Portfolio/routes/experienceRoutes");
-const AppError = require("./Portfolio/utils/appError");
-const globalErrorHandler = require("./Portfolio/controllers/errorController");
+const userRouter = require("./routes/userRoutes");
+const projectRouter = require("./routes/projectRoutes");
+const experienceRouter = require("./routes/experienceRoutes");
+const AppError = require("./utils/appError");
+const globalErrorHandler = require("./controllers/errorController");
 
 app.use(morgan("dev"));
 
