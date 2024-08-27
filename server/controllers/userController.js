@@ -139,7 +139,17 @@ exports.updateMe = catchAsync(async (req, res, next) => {
   console.log(req.body.skills);
 
   let bodySkills = req.body.skills;
-  const filterBody = filterObj(req.body, "name", "email");
+  const filterBody = filterObj(
+    req.body,
+    "name",
+    "email",
+    "description",
+    "skills",
+    "photo",
+    "role",
+    "location",
+    "title"
+  );
   if (req.file) filterBody.photo = req.file.filename;
 
   // console.log(req.user._id);
