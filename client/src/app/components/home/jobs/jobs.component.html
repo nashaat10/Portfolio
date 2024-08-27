@@ -4,7 +4,7 @@
       <div class="about-title mb-5" data-aos="fade-up" data-aos-duration="1000">
         <h3 class="e-font section-title">
           <span class="code-font n-section-title">02.</span>
-          {{ "Experience.Title" | translate }}
+          Experience
         </h3>
       </div>
       <div class="jobs-tabs" data-aos="fade-up" data-aos-duration="1000">
@@ -16,26 +16,18 @@
           class="nav-tabs jobs-tabs"
         >
           <li
-            *ngFor="let job of 'Experience.Jobs' | translate; let i = index"
-            [title]="job.Tab"
+            *ngFor="let job of data.data.user.experiences; let i = index"
+            [title]="job.title"
             [ngbNavItem]="i"
           >
-            <a ngbNavLink>{{ job.Tab }}</a>
+            <a ngbNavLink>{{ job.title }}</a>
             <ng-template ngbNavContent>
               <h4 class="title-tab-content">
-                {{ job.Title }} |
-                <span class="company-tab-content">{{ job.Tab }}</span>
+                {{ job.title }} |
+                <span class="company-tab-content">{{ job.company }}</span>
               </h4>
-              <h5 class="job-time">{{ job.Date }}</h5>
-              <!-- {{job.Description | json}} -->
-              <p
-                *ngFor="
-                  let jobDescriptionParagraph of job.Description;
-                  let i = index
-                "
-                class="job-description"
-                [innerHTML]="jobDescriptionParagraph | translate"
-              ></p>
+              <h5 class="job-time">{{ job.current ? 'Current' : 'Past' }}</h5>
+              <p class="job-description">{{ job.description }}</p>
               <span></span>
             </ng-template>
           </li>
@@ -45,3 +37,5 @@
     </div>
   </div>
 </section>
+
+

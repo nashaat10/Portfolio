@@ -10,11 +10,13 @@ export class AboutComponent implements OnInit {
   constructor(public analyticsService: AnalyticsService) {}
 
   ngOnInit(): void {
-    console.log(this.data.user);
+    console.log(this.data.data.user);
+    console.log(this.data.data.user.name);
   }
 
   data = JSON.parse(localStorage.getItem('data') || '{}');
 }
+
 export interface User {
   _id: string;
   name: string;

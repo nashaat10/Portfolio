@@ -19,7 +19,7 @@ const createSendToken = (user, statusCode, res) => {
     httpOnly: true,
   };
 
-  res.cookie("jwt", token, cookieOptions);
+  // res.cookie("jwt", token, cookieOptions);
   user.password = undefined;
 
   console.log(token);
@@ -80,7 +80,7 @@ exports.protect = catchAsync(async (req, res, next) => {
     );
   }
   // 2) Verification token
-
+  console.log('token', token);
   const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
   console.log(decoded);
 
