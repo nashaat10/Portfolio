@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/nashaat10/Portfolio#readme",
   "dependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "cors": "^2.8.5"
   }
 }

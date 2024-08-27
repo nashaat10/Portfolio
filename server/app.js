@@ -6,10 +6,13 @@ const projectRouter = require("./routes/projectRoutes");
 const experienceRouter = require("./routes/experienceRoutes");
 const AppError = require("./utils/appError");
 const globalErrorHandler = require("./controllers/errorController");
+const cors = require("cors");
 
 app.use(morgan("dev"));
 
 app.use(express.json());
+
+app.use(cors());
 
 // routes
 

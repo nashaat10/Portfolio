@@ -5,6 +5,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from 'src/app/services/language/language.service';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import { DataService } from './services/data.service';
+// import { LocalStorageService } from 'path/to/local-storage.service';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +21,8 @@ export class AppComponent implements OnInit {
     private metaService: Meta,
     private translateService: TranslateService,
     private location: Location,
-    private languageService: LanguageService
+    private languageService: LanguageService,
+    private dataService: DataService
   ) {}
   ngOnInit(): void {
     this.languageService.initLanguage();
@@ -36,5 +39,14 @@ export class AppComponent implements OnInit {
     ]);
 
     AOS.init();
+    this.dataService.getData().subscribe((data) => {
+      console.log(data);
+      localStorage.setItem('data', JSON.stringify(data));
+    });
+
+    this.dataService.login().subscribe((data) => {
+      console.log(data);
+      localStorage.setItem('token', data.token);
+    });
   }
 }
