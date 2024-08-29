@@ -12,8 +12,9 @@ export class AboutComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.data.data.user);
     console.log(this.data.data.user.name);
+    console.log(this.base_url + this.data.data.user.photo);
   }
-
+  base_url = 'http://localhost:3000/';
   data = JSON.parse(localStorage.getItem('data') || '{}');
 }
 
