@@ -3,6 +3,6 @@
 
 ~~~
 npm install
-npm rub build
+npm run build
 npm start
 ~~~
