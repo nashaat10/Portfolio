@@ -30,7 +30,7 @@ Users:
 /api/v1/users [GET] 
 /api/v1/users/:id [GET]
 /api/v1/users/:id [PATCH]  
-/api/v1/users/:id [DELETE] ( 
+/api/v1/users/:id [DELETE] 
 /api/v1/users/me [GET]
 /api/v1/users/updateMe [PATCH]
 /api/v1/users/deleteMe [DELETE]
