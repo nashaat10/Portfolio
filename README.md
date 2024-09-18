@@ -7,7 +7,7 @@ It's a personal portfolio that allows the user to change his data and update it 
 
 # Features #
 
-1. protected routes, authentication, authorization, security, and more. 
+1. protected routes, authentication, authorization, security, and more.  
 2. MVC architecture
 3. RESTful API
 4. CRUD operations
