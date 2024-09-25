@@ -15,7 +15,7 @@ It's a personal portfolio that allows the user to change his data and update it 
 6. Advanced error handling
 7. File uploading
 8. Advanced MongoDB 
-9. Advanced mongoose features
+9. Advanced mongoose features 
 10. Image processing with sharp
 11. And much more!
 # APIs # 
