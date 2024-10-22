@@ -2,7 +2,7 @@ Portfolio<a name="TOP"></a>
 ===================
 
 # Description #
-It's a personal portfolio that allows the user to change his data and update it using the API. It is built using Node.js, Express, MongoDB , Angular
+It's a personal portfolio that allows the user to change his data and update it using the API. It is built using Node.js, Express, MongoDB , Angular 
 
 
 # Features #
